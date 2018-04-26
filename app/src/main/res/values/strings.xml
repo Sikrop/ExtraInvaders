@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ExtraInvaders</string>
+    <string name="action_settings">Settings</string>
+    <string name="Arrancar">Jugar</string>
+    <string name="Configurar">Configurar</string>
+    <string name="Acercade">Acerca de </string>
+    <string name="Salir">Salir</string>
+    <string name="tituloAplicacion">ExtraInvaders</string>
+</resources>
