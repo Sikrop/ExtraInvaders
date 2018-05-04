@@ -31,7 +31,7 @@ public class Grafico {
         drawable.draw(canvas);
         canvas.restore();
         int rInval = (int) Math.hypot(ancho,alto)/2 + Max_Velocidad;
-        view.invalidate(x-rInval,y-rInval,x+rInval,y+rInval);
+        view.invalidate(x - rInval,y - rInval,x + rInval,y + rInval);
     }
     public void incrementaPos(double factor){
         posX+=incX * factor;
