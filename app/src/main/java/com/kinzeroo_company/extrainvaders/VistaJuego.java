@@ -17,15 +17,16 @@ public class VistaJuego extends View {
 
     public VistaJuego(Context context, AttributeSet attrs) {
         super(context, attrs);
-        /*Drawable drawableBase,  drawableLaser;
+        Drawable drawableBase,  drawableLaser;
         drawableBase = ContextCompat.getDrawable(context, R.drawable.torre1);
-        nave = new Grafico(this, drawableBase);*/
+        nave = new Grafico(this, drawableBase);
     }
     @Override protected void onSizeChanged(int ancho, int alto, int ancho_anterior, int alto_anterior) {
-       // nave.setAncho(ancho);
+       nave.setAncho(ancho);
+       nave.setAlto(alto);
     }
     @Override protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        //nave.DibujaGrafico(canvas);
+        nave.DibujaGrafico(canvas);
     }
 }

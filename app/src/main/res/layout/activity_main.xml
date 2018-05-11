@@ -102,26 +102,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.386" />
 
-        <Button
-            android:id="@+id/btn04"
-            android:layout_width="160dp"
-            android:layout_height="52dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#3a8e59"
-            android:drawablePadding="8dp"
-            android:text="@string/Salir"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.386" />
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
