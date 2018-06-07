@@ -24,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, Juego.class);
         startActivity(i);
     }
+    public void AcercaDe(View v){
+        Intent i = new Intent(this, AcercaDeActivity.class);
+        startActivity(i);
+    }
+    public void Puntajes(View v){
+        Intent i = new Intent(this, PuntuacionesActivity.class);
+        startActivity(i);
+    }
     @Override
     public void onBackPressed(){
         if (tiempoPrimerClick + INTERVALO > System.currentTimeMillis()){

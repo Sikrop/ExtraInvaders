@@ -20,40 +20,42 @@ public class Grafico {
         this.drawable = drawable;
         ancho = drawable.getIntrinsicWidth();
         alto = drawable.getIntrinsicHeight();
-        //RadColision = (alto+ancho)/4;
+        RadColision = (alto+ancho)/4;
     }
     public void DibujaGrafico(Canvas canvas){
         canvas.save();
         int x = (int) (posX + ancho / 2);
         int y = (int) (posY + alto / 2);
         //canvas.rotate((float)angulo,(float)x,(float)y);
-        drawable.setBounds((int)posX,(int)posY,(int)posX+ancho,(int)posY+alto);
+        drawable.setBounds((int)posX,400,(int)posX+ancho,540);
         drawable.draw(canvas);
         canvas.restore();
-        int rInval = (int) Math.hypot(ancho, alto) / + Max_Velocidad;
-        view.invalidate(x - rInval, y - rInval, x + rInval, y + rInval);
+        canvas.restore();
+        int rInval = (int) Math.hypot(ancho,alto)/2 + Max_Velocidad;
+        view.invalidate(x-rInval, y-rInval, x+rInval, y+rInval);
+    }
+    public void incrementaPos(double factor){
+        posX+=incX * factor;
+        // Si salimos de la pantalla, corregimos posición
+        if(posX<-ancho/2) {posX=view.getWidth()-ancho/2;}
+        if(posX>view.getWidth()-ancho/2) {posX=-ancho/2;}
+        posY+=incY * factor;
+        if(posY<-alto/2)
+        {posY=view.getHeight()-alto/2;}
+        if(posY>view.getHeight()-alto/2)
+        {posY=-alto/2;}
+        angulo += rotacion * factor; //Actualizamos ángulo
     }
     public void moverImagen() {
         posX += incX;
         posY += incY;
     }
-    /*public void incrementaPos(double factor){
-        posX+=incX * factor;
-        if(posX<-ancho/2) {posX=view.getWidth()-ancho/2;}
-        if(posX>view.getWidth()-ancho/2) {posX=-ancho/2;}
-        posY+=incY * factor;
-        if(posY<-alto/2) {posY=view.getHeight()-alto/2;}
-        if(posY>view.getHeight()-alto/2) {posY=-alto/2;}
-        angulo += rotacion * factor;
-
-    }*/
     public double distancia(Grafico g) {
         return Math.hypot(posX-g.posX, posY-g.posY);
     }
     public boolean verificaColision(Grafico g) {
         return(distancia(g) < (RadColision+g.RadColision));
     }
-
     public Drawable getDrawable() {
         return drawable;
     }
