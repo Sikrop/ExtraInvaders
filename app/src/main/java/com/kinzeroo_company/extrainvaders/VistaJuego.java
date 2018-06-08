@@ -59,13 +59,18 @@ public class VistaJuego extends View {
         misil.setIncY(Math.sin(Math.toRadians(misil.getAngulo()))*PASO_VELOCIDAD_MISIL);
         tiempoMisil = (int) Math.min(this.getWidth()/Math.abs(misil.getIncX()),
                 this.getWidth()/Math.abs(misil.getIncY()))-2;
+        Log.i("TIEMPO MISIL", "" + tiempoMisil);
         misilActivo=true;
+        ThreadJuego hilo = new ThreadJuego();
+
+        hilo.start();
     }
     public void ActualizarFisica(){
         if(misilActivo)
         {
-            misil.incrementaPos(0);
+            misil.incrementaPos(1);
             tiempoMisil--;
+            Log.i("TIEMPO MISIL", "" + tiempoMisil);
             if(tiempoMisil<0){
                 misilActivo=false;
             }
@@ -74,7 +79,7 @@ public class VistaJuego extends View {
     }
     class ThreadJuego extends Thread{
         private boolean pausa;
-        private boolean corriendo;
+        private boolean corriendo=true;
 
         @Override
         public void run()
@@ -84,9 +89,14 @@ public class VistaJuego extends View {
             {
                 ActualizarFisica();
                 synchronized (this) {
+                    try {
+                        wait(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     while(pausa){
                         try{
-                            wait();
+                            wait(500);
                         }
                         catch(Exception ex)
                         {

@@ -30,7 +30,7 @@ public class Grafico {
         drawable.setBounds((int)posX,400,(int)posX+ancho,540);
         drawable.draw(canvas);
         canvas.restore();
-        canvas.restore();
+       // canvas.restore();
         int rInval = (int) Math.hypot(ancho,alto)/2 + Max_Velocidad;
         view.invalidate(x-rInval, y-rInval, x+rInval, y+rInval);
     }
